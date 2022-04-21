@@ -6,4 +6,17 @@
         </a>
     </section>
 
+    <section>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>CNPJ</th>
+                    <th>Telefone/Celular</th>
+                    <th>E-Mail</th>
+                </tr>
+            </thead>
+        </table>
+    </section>
 </main>
