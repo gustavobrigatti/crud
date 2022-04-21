@@ -4,7 +4,7 @@
     <form method="post">
 
         <div class="form-group">
-            <p>Você deseja realmente excluir o cliente <strong><?=$cliente->nome?></strong></p>
+            <p>Você deseja realmente excluir o cliente <strong><?=$cliente->nome?></strong>?</p>
         </div>
 
         <div class="form-row">
