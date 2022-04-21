@@ -51,5 +51,17 @@
             //Retorna o ID inserido
             return $this->connection->lastInsertId();
         }
+
+        //Método responsável por executar uma consulta no banco
+        public function select($where = null, $order = null, $limit = null, $fields = '*'){
+            //Dados da query
+            $where = strlen($where) ? 'WHERE '.$where:'';
+            $where = strlen($order) ? 'ORDER BY '.$order:'';
+            $where = strlen($limit) ? 'LIMIT '.$limit:'';
+            //Monta a query
+            $query = 'SELECT '.$fields.' FROM '.$this->table.' '.$where.' '.$order.' '.$limit;
+            //Executa a query
+            return $this->execute($query);
+        }
     }
 ?>

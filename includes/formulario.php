@@ -22,7 +22,7 @@
 
         <div class="form-row">
             <div class="form-group col-6">
-                <label>Telefone</label>
+                <label>Telefone/Celular</label>
                 <input type="text" class="form-control mask-tel" name="telefone" required></input>
             </div>
             <div class="form-group col-6">
@@ -32,7 +32,7 @@
         </div>
 
         <div class="form-group">
-            <button type="submit" class="btn btn-danger">Enviar</button>
+            <button type="submit" class="btn btn-danger border-radius" style="width: 100%">Enviar</button>
         </div>
     </form>
 

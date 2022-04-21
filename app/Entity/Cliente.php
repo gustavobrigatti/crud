@@ -2,6 +2,7 @@
     namespace App\Entity;
 
     use \App\Db\Database;
+    use \PDO;
 
     class Cliente{
         public $id;
@@ -20,6 +21,11 @@
                 'email' => $this->email,
             ]);
             return true;
+        }
+
+        //Método responsável por obter os clientes do banco de dados
+        public static function getClientes($where = null, $order = null, $limit = null){
+            return (new Database('clientes'))->select($where, $order, $limit)->fetchAll(PDO::FETCH_CLASS, self::class);
         }
     }
 ?>
