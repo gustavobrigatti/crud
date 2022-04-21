@@ -39,6 +39,18 @@
             }
         }
 
+        //Método responsável por executar uma consulta no banco
+        public function select($where = null, $order = null, $limit = null, $fields = '*'){
+            //Dados da query
+            $where = strlen($where) ? 'WHERE '.$where:'';
+            $where = strlen($order) ? 'ORDER BY '.$order:'';
+            $where = strlen($limit) ? 'LIMIT '.$limit:'';
+            //Monta a query
+            $query = 'SELECT '.$fields.' FROM '.$this->table.' '.$where.' '.$order.' '.$limit;
+            //Executa a query
+            return $this->execute($query);
+        }
+
         //Método responsável por inserir dados no banco
         public function insert($values){
             //Dados da query
@@ -52,16 +64,26 @@
             return $this->connection->lastInsertId();
         }
 
-        //Método responsável por executar uma consulta no banco
-        public function select($where = null, $order = null, $limit = null, $fields = '*'){
+        //Método responsável por executar atualizações no banco de dados
+        public function update($where, $values){
             //Dados da query
-            $where = strlen($where) ? 'WHERE '.$where:'';
-            $where = strlen($order) ? 'ORDER BY '.$order:'';
-            $where = strlen($limit) ? 'LIMIT '.$limit:'';
+            $fields = array_keys($values);
             //Monta a query
-            $query = 'SELECT '.$fields.' FROM '.$this->table.' '.$where.' '.$order.' '.$limit;
+            $query = 'UPDATE '.$this->table.' SET '.implode('=?,', $fields).'=? WHERE '.$where;
+            //Executar a query
+            $this->execute($query, array_values($values));
+            //Retorna sucesso
+            return true;
+        }
+
+        //Método responsável por excluir dados do banco
+        public function delete($where){
+            //Monta a query
+            $query = 'DELETE FROM '.$this->table.' WHERE '.$where;
             //Executa a query
-            return $this->execute($query);
+            $this->execute($query);
+            //Retorna sucesso
+            return true;
         }
     }
 ?>

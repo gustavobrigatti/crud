@@ -1,4 +1,16 @@
 <?php
+    $mensagem = '';
+    if(isset($_GET['status'])){
+        switch ($_GET['status']){
+            case 'success':
+                $mensagem = '<div class="alert" style="background-color: #dc3545">Ação executada com sucesso!</div>';
+                break;
+            case 'error':
+                $mensagem = '<div class="alert" style="background-color: #dc3545">Ação não executada!</div>';
+                break;
+        }
+    }
+
     $resultados = '';
     foreach($clientes as $cliente){
         $resultados .= '<tr>
@@ -17,9 +29,12 @@
                             </td>
                         </td>';
     }
+    $resultados = strlen($resultados) ? $resultados : '<tr><td colspan="6" class="text-center">Nenhum cliente encontrado</td></tr>';
 ?>
 
 <main>
+
+    <?=$mensagem?>
 
     <section class="text-right">
         <a href="cadastrar.php">

@@ -1,11 +1,14 @@
 <?php
     require __DIR__.'/vendor/autoload.php';
 
+    define ('TITLE', 'Cadastrar Cliente');
+
     use \App\Entity\Cliente;
+
+    $cliente = new Cliente;
 
     //VALIDAÇÃO DO POST
     if(isset($_POST['nome'], $_POST['cnpj'], $_POST['telefone'], $_POST['email'])){
-        $cliente = new Cliente;
         $cliente->nome = $_POST['nome'];
         $cliente->cnpj = $_POST['cnpj'];
         $cliente->telefone = $_POST['telefone'];
