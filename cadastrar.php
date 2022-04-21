@@ -8,11 +8,15 @@
     $cliente = new Cliente;
 
     //VALIDAÇÃO DO POST
-    if(isset($_POST['nome'], $_POST['cnpj'], $_POST['telefone'], $_POST['email'])){
+    if(isset($_POST['nome'], $_POST['cnpj'], $_POST['telefone'], $_POST['email'], $_POST['estado'], $_POST['cidade'], $_POST['endereco'], $_POST['cep'])){
         $cliente->nome = $_POST['nome'];
         $cliente->cnpj = $_POST['cnpj'];
         $cliente->telefone = $_POST['telefone'];
         $cliente->email = $_POST['email'];
+        $cliente->estado = $_POST['estado'];
+        $cliente->cidade = $_POST['cidade'];
+        $cliente->endereco = $_POST['endereco'];
+        $cliente->cep = $_POST['cep'];
         $cliente->cadastrar();
 
         header('location: index.php?status=success');

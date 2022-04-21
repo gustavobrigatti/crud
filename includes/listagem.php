@@ -15,10 +15,18 @@
     foreach($clientes as $cliente){
         $resultados .= '<tr>
                             <td class="text-center">'.$cliente->id.'</td>
-                            <td>'.$cliente->nome.'</td>
-                            <td>'.$cliente->cnpj.'</td>
-                            <td>'.$cliente->telefone.'</td>
-                            <td>'.$cliente->email.'</td>
+                            <td>
+                                '.$cliente->nome.'<br>
+                                <small>'.$cliente->cnpj.'</small>
+                            </td>
+                            <td>
+                                '.$cliente->telefone.'<br>
+                                '.$cliente->email.'
+                            </td>
+                            <td>
+                                '.$cliente->cidade.'/'.$cliente->estado.'<br>
+                                '.$cliente->endereco.' - '.$cliente->cep.'
+                            </td>
                             <td>
                                 <a href="editar.php?id='.$cliente->id.'">
                                     <button type="button" class="btn btn-danger">Editar</button>
@@ -47,10 +55,9 @@
             <thead>
                 <tr>
                     <th class="text-center">ID</th>
-                    <th>Nome</th>
-                    <th>CNPJ</th>
-                    <th>Telefone/Celular</th>
-                    <th>E-Mail</th>
+                    <th>Cliente</th>
+                    <th>Contato</th>
+                    <th>Endereço</th>
                     <th>Ações</th>
                 </tr>
             </thead>

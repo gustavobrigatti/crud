@@ -5,11 +5,7 @@
     use \PDO;
 
     class Cliente{
-        public $id;
-        public $nome;
-        public $cnpj;
-        public $telefone;
-        public $email;
+        public $id, $nome, $cnpj, $telefone, $email, $estado, $cidade, $endereco, $cep;
 
         //Método responsável por obter os clientes do banco de dados
         public static function getClientes($where = null, $order = null, $limit = null){
@@ -29,6 +25,10 @@
                 'cnpj' => $this->cnpj,
                 'telefone' => $this->telefone,
                 'email' => $this->email,
+                'estado' => $this->estado,
+                'cidade' => $this->cidade,
+                'endereco' => $this->endereco,
+                'cep' => $this->cep,
             ]);
             return true;
         }
@@ -40,6 +40,10 @@
                 'cnpj' => $this->cnpj,
                 'telefone' => $this->telefone,
                 'email' => $this->email,
+                'estado' => $this->estado,
+                'cidade' => $this->cidade,
+                'endereco' => $this->endereco,
+                'cep' => $this->cep,
             ]);
         }
 
